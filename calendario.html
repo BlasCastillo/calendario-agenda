@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Trabajo - Octubre 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <h1>🗓️ Agenda de Trabajo: Octubre 2025</h1>
+        <button id="generatePdf" class="pdf-button">Generar Reporte PDF</button>
+    </header>
+
+    <div id="pdf-content-wrapper" class="pdf-content-wrapper">
+        
+        <div class="header-pdf-info" id="header-pdf-info">
+            <p>INSTITUTO AUTÓNOMO DE LA JUVENTUD DEL ESTADO YARACUY</p>
+            <p>COORDINACIÓN DE FORMACIÓN Y CAPACITACIÓN</p>
+        </div>
+
+        <div class="calendar-container">
+            <h2>Eventos Programados</h2>
+            <div id="events-list" class="events-list">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

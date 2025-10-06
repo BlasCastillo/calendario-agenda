@@ -1,0 +1,184 @@
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #f8f9fa; /* Gris claro para fondo */
+    --text-color: #343a40; /* Texto oscuro */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+}
+
+/* --- Botón PDF --- */
+.pdf-button {
+    background-color: #dc3545; /* Rojo para destacar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.pdf-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.pdf-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+/* Estilos para el texto del instituto (solo visibles para PDF) */
+.header-pdf-info {
+    text-align: center;
+    margin-bottom: 30px; /* Aumentamos el margen para que se vea mejor */
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc; /* Separador sutil */
+    display: none; /* Oculto por defecto en la vista normal del navegador */
+}
+
+/* Clase que se añade temporalmente para mostrar el texto al generar PDF */
+.show-for-pdf {
+    display: block !important;
+}
+
+.header-pdf-info p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+
+/* Clase que se añade temporalmente para mostrar el logo y texto al generar PDF */
+.show-for-pdf {
+    display: block !important;
+}
+
+.header-pdf-info img {
+    max-width: 150px; /* Tamaño del logo */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.header-pdf-info p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+
+.calendar-container {
+    /* max-width y margin auto ya definidos en .pdf-content-wrapper para este caso */
+    background: white; /* No es estrictamente necesario aquí si pdf-content-wrapper ya lo tiene */
+   padding: 0 10px; /* Ya tiene padding el wrapper */
+    border-radius: 0; /* Ya tiene border-radius el wrapper */
+    box-shadow: none; /* Ya tiene box-shadow el wrapper */
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 10px;
+    margin-left: 10px; 
+}
+
+/* --- Lista de Eventos (Estructura moderna) --- */
+.events-list {
+    display: grid;
+    /* REDUCIMOS el minmax de 350px a 300px. Esto hace que el grid sea más flexible y pequeño. */
+     grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; /* Reducimos el gap de 25px a 20px para ganar más espacio horizontal */
+}
+
+.event-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: transform 0.2s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.event-date {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.event-date::before {
+    content: "📅";
+    margin-right: 8px;
+}
+
+.event-detail {
+    margin-bottom: 5px;
+}
+
+.event-detail strong {
+    color: #495057;
+    display: inline-block;
+    min-width: 70px;
+}
+
+.event-activity {
+    margin-top: 10px;
+    font-style: italic;
+    padding: 8px; /* Reducir padding */
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 0.95em; /* Ligeramente más pequeño */
+}
+
+/* Media query para asegurar la responsividad en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    /*.events-list {
+        grid-template-columns: 1fr;
+    }*/
+}
